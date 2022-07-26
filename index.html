@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <b>Inserte el código: </b>
+    <input type="number" name="numberInput" id="numberInput" max="1000000" min="1" step="1">
+    <button type="button" onclick="myFunction()">Comprobar</button>
+    
+    <script>
+        function myFunction() 
+        {
+            let code = document.getElementById("numberInput").value;
+            var hash = 0;
+            
+            if (code.length > 0) 
+            {
+                for (i = 0; i < code.length; i++) 
+                {
+                    char = code.charCodeAt(i);
+                    hash = ((hash << 5) - hash) + char;
+                    hash = hash & hash;
+                }
+            }
+            
+                        
+            if (code == 5)
+            {
+                alert("Código correcto :-) El regalo está en ...");
+            }
+            else
+            {
+                alert("No es el código correcto :-(, pero puedes volver a intentarlo!");
+            }
+            
+            return 
+        }
+    </script>
+
+    
+
+</body>
+</html>
