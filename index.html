@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha1.js"></script>
 </head>
 <body>
     <b>Inserte el código: </b>
@@ -15,22 +17,14 @@
         function myFunction() 
         {
             let code = document.getElementById("numberInput").value;
-            var hash = 0;
-            
-            if (code.length > 0) 
+            var hash = CryptoJS.MD5(code);
+
+            //alert(hash);
+                                    
+            if (hash == "e4da3b7fbbce2345d7772b0674a318d5")
             {
-                for (i = 0; i < code.length; i++) 
-                {
-                    char = code.charCodeAt(i);
-                    hash = ((hash << 5) - hash) + char;
-                    hash = hash & hash;
-                }
-            }
-            
-                        
-            if (code == 5)
-            {
-                alert("Código correcto :-) El regalo está en ...");
+                var message = CryptoJS.AES.decrypt("U2FsdGVkX191XhXMaZOXO/u2YapSyPcrD3eNpkDSBzUYqbdCABPg2RCHcB/tkwVXCVLADioS3QXcMAFcwQolkA==","e4da3b7fbbce2345d7772b0674a318d5").toString(CryptoJS.enc.Utf8);
+                alert(message);
             }
             else
             {
@@ -41,6 +35,10 @@
         }
     </script>
 
+    
+
+</body>
+</html>
     
 
 </body>
