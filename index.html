@@ -10,7 +10,7 @@
 </head>
 <body>
     <b>Inserte el código: </b>
-    <input type="number" name="numberInput" id="numberInput" max="1000000" min="1" step="1">
+    <input type="number" name="numberInput" id="numberInput" max="999999999999999999999999999999" min="1" step="1">
     <button type="button" onclick="myFunction()">Comprobar</button>
     
     <script>
@@ -20,16 +20,15 @@
             var hash = CryptoJS.MD5(code);
             var hash2 = CryptoJS.MD5(hash);
                                                 
-            if (hash2 == "49cb61b9f3d9ad0a42cf09473130a696")
+            if (hash2 == "4c416a2ecc8b3a47d3868bb7b887fe22")
             {
-                var message = CryptoJS.AES.decrypt("U2FsdGVkX19OV5XfWkkpyTg4JgGDoBjnq2BoGjgjIO53RMFtYEGa/YB2xY5OCKwS","49cb61b9f3d9ad0a42cf09473130a696").toString(CryptoJS.enc.Utf8);
+                var message = CryptoJS.AES.decrypt("U2FsdGVkX19bWddNwUnugBBNqYdinRZU/SBwXKuBFPU7tRObzt8T5GDzl9H/MoYa+B9URVrdy83S+/0uwo2LEhJUq8l6IXPVsnEU3o2qKX9dmB7OivKcCbfEetZu2ijZ","4c416a2ecc8b3a47d3868bb7b887fe22").toString(CryptoJS.enc.Utf8);
                 alert(message);
-                var web = CryptoJS.AES.decrypt("U2FsdGVkX1/Z4Fb0oYoSfwtTFahcFw81lE3HZU8F0as=","49cb61b9f3d9ad0a42cf09473130a696").toString(CryptoJS.enc.Utf8);
                 window.open("imagen.png");
             }
             else
             {
-                alert("No es el código correcto :-(, pero puedes volver a intentarlo!");
+                alert("No es el código correcto :-(, pero podéis volver a intentarlo!");
                 
             }
             
